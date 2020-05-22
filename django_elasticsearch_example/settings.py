@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'django_elasticsearch_example.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django-elastic',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '192.168.0.47',
+        'HOST': 'localhost',
         'PORT': '5436',
     }
 }
