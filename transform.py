@@ -1,11 +1,9 @@
-import csv, json, os
-
-import pandas as pd
+import csv, json
 
 csvFilePath = "datasets/udemy_courses.csv"
 jsonFilePath = "data_transformed/udemy.json"
 
-def trasn():
+def transform():
 
     arr = []
     # read the csv and add the arr to a arrayn
@@ -32,11 +30,3 @@ def trasn():
     with open(jsonFilePath, "w") as jsonFile:
         jsonFile.write(json.dumps(final_arr, indent=4))
 
-def transform():
-    csvFilePath = "datasets/udemy_courses.csv"
-    jsonFilePath = "data_transformed/udemy.json"
-    df = pd.read_csv(csvFilePath)
-    df.to_json(jsonFilePath)
-
-if __name__ == "__main__":
-    trasn()

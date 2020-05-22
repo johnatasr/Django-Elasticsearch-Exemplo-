@@ -14,9 +14,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         wait_elasticsearch_availability()
         try:
-            call_command('migrate', '--noinput')
             call_command('loaddata', 'udemy.json')
-            # call_command('search_index', '--rebuild', '-f')
+            call_command('search_index', '--rebuild', '-f')
         except Exception as exception:
             raise CommandError(
                 'Something went wrong during executing commands: {}'.format(

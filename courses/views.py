@@ -15,15 +15,15 @@ from django_elasticsearch_dsl_drf.filter_backends import (
 )
 from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
 
-# from courses.documents import CarDocument
-# from cars.serializers import CarDocumentSerializer
+from courses.documents import CourseDocument
+from courses.serializers import CourseDocumentSerializer
 
 
 class CoursesViewSet(DocumentViewSet):
-    # document = CarDocument
-    # serializer_class = CarDocumentSerializer
-    # ordering = ('id',)
-    # lookup_field = 'id'
+    document = CourseDocument
+    serializer_class = CourseDocumentSerializer
+    ordering = ('id',)
+    lookup_field = 'id'
 
     filter_backends = [
         DefaultOrderingFilterBackend,
@@ -33,8 +33,8 @@ class CoursesViewSet(DocumentViewSet):
     ]
 
     search_fields = (
-        'name',
-        'description',
+        'course_title',
+        'level'
     )
 
     filter_fields = {
@@ -49,12 +49,13 @@ class CoursesViewSet(DocumentViewSet):
                 LOOKUP_QUERY_LTE,
             ],
         },
-        'name': 'name',
+        'course_title': 'course_title.raw',
+        'level': 'level.raw'
     }
 
     suggester_fields = {
-        'name_suggest': {
-            'field': 'name.suggest',
+        'title_suggest': {
+            'field': 'title.suggest',
             'suggesters': [
                 SUGGESTER_COMPLETION,
             ],

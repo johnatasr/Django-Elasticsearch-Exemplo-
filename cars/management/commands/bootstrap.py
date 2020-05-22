@@ -7,22 +7,17 @@ class Command(BaseCommand):
     help = '''
     Setup project.
      - apply migrations
-     - loaddata
-     - create and populate index and mapping
+     - loaddata from cars
     '''
 
     def handle(self, *args, **options):
-        print('Verifi viabilidade')
+
         wait_elasticsearch_availability()
         try:
             call_command('migrate', '--noinput')
-            print('Migrando ..')
             call_command('loaddata', 'manufacturers.json')
-            print('Carregando manufacturers.json')
             call_command('loaddata', 'cars.json')
-            print('Carregando cars.json')
-            call_command('search_index', '--rebuild', '-f')
-            print('Carregando Index')
+
         except Exception as exception:
             raise CommandError(
                 'Something went wrong during executing commands: {}'.format(

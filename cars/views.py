@@ -2,7 +2,7 @@ from django_elasticsearch_dsl_drf.constants import (
     LOOKUP_FILTER_RANGE,
     LOOKUP_QUERY_GT,
     LOOKUP_QUERY_GTE,
-    LOOKUP_QUERY_IN,
+    LOOKUP_QUERY_IN, 
     LOOKUP_QUERY_LT,
     LOOKUP_QUERY_LTE,
     SUGGESTER_COMPLETION,
