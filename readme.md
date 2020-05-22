@@ -7,6 +7,7 @@ Projeto testando Elasticsearch com Django
 * Docker
 * Docker-compose
 * Python 3.7
+* Elasticsearch 6.8
 
 ## Começando
 
