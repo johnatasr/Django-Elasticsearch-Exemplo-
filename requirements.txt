@@ -3,7 +3,7 @@ django-elasticsearch-dsl==0.5.1
 django-elasticsearch-dsl-drf==0.17.6
 django-filter==2.1.0
 django-nine==0.2.3
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 elasticsearch==6.8.0
 elasticsearch-dsl==6.1.0
 ipaddress==1.0.23
